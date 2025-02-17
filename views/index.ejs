@@ -1,0 +1,73 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube to MP3 Downloader</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <div class="container">
+            <form action="/convert-mp3" method="post" id="form">
+                <h1>
+                    <i class="fab fa-youtube"></i> YOUTUBE 2 MP3 CONVERTER
+                </h1>
+                <h4>Enter the full YouTube URL</h4>
+                <input type="text" name="videoId" placeholder="ENTER VIDEO ID" required>
+                <button type="submit" id="convert-btn">🎵 Convert</button>
+            </form>
+        </div>
+
+        <div class="button-container">
+            <% if (typeof success !== "undefined" && success) { %>
+                <div class="success">
+                    <p><%= song_title %></p>
+                    <a href="<%= song_link %>">
+                        <button id="download-btn">⬇ DOWNLOAD</button>
+                    </a>
+                </div>
+            <% } else if (typeof success !== "undefined" && !success) { %>
+                <div class="errors">
+                    <p><%= message %></p>
+                </div>
+            <% } %>
+        </div>
+
+        <!-- Steps to Extract Video ID -->
+        <div class="steps">
+            <h3>📌 How to Extract Video ID from YouTube URL:</h3>
+            <ul>
+                <li><strong>Standard URL:</strong> <code>https://www.youtube.com/watch?v=abcd1234</code> → Video ID is <strong>"abcd1234"</strong></li>
+                <li><strong>Shortened URL:</strong> <code>https://youtu.be/abcd1234</code> → Video ID is <strong>"abcd1234"</strong></li>
+                <li><strong>Playlist URL:</strong> Ignore "&list=" and extract ID from <code>watch?v=abcd1234</code></li>
+            </ul>
+        </div>
+
+        <!-- Disclaimer -->
+        <div class="disclaimer">
+            <p><strong>Disclaimer:</strong> This website is for educational purposes only. Downloading copyrighted content without proper authorization may violate YouTube's policies and applicable laws. Please ensure that you have permission before downloading any content.</p>
+        </div>
+
+        
+    <!-- Footer -->
+    <footer>
+        <p>Made with ❤️ by Rahul</p>
+        <p>&copy; 2025 YouTube 2 MP3 Converter. All rights reserved.</p>
+        
+        <p>Follow us on: 
+           
+            <a href="https://www.instagram.com/rahulx.568/?hl=en" target="_blank">Instagram</a>
+        </p>
+    </footer>
+
+</body>
+
+</html>
+
